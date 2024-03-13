@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240129 19:12:51.054" rpa="false" schemaversion="4">
+<suite id="s1" name="TestesAdmin" source="c:\Automacao\SIDP\Test.robot\TestesAdmin.robot">
+<test id="s1-t1" name="Upload de novo documento através do item teste 4 1" line="75">
+<kw name="Quando eu clicar na aba item" library="AdminPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[contains(.,'Itens')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240129 19:12:51.629" level="INFO">Clicking button 'xpath=//button[contains(.,'Itens')]'.</msg>
+<msg timestamp="20240129 19:12:51.633" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20240129 19:12:51.633" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20240129 19:12:51.629" endtime="20240129 19:12:51.685"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[contains(@label,'Itens')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240129 19:12:51.685" endtime="20240129 19:12:51.685"/>
+</kw>
+<status status="FAIL" starttime="20240129 19:12:51.628" endtime="20240129 19:12:51.685"/>
+</kw>
+<kw name="E pesquisar pelo item teste 4 1" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.686" endtime="20240129 19:12:51.686"/>
+</kw>
+<kw name="E clicar em buscar" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.686" endtime="20240129 19:12:51.686"/>
+</kw>
+<kw name="E clicar no item teste 4 1" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.687" endtime="20240129 19:12:51.687"/>
+</kw>
+<kw name="E clicar no botão vincular" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.687" endtime="20240129 19:12:51.688"/>
+</kw>
+<kw name="E clicar no botao busque no desktop" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.688" endtime="20240129 19:12:51.688"/>
+</kw>
+<kw name="E selecionar o tipo OCD" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.689" endtime="20240129 19:12:51.689"/>
+</kw>
+<kw name="E carregar documento" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.689" endtime="20240129 19:12:51.689"/>
+</kw>
+<kw name="E clicar no botao vincular" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.690" endtime="20240129 19:12:51.690"/>
+</kw>
+<kw name="Então o sistema devera apresentar a mensagem &quot;Documento enviado para análise&quot;" library="AdminPage">
+<status status="NOT RUN" starttime="20240129 19:12:51.690" endtime="20240129 19:12:51.691"/>
+</kw>
+<status status="FAIL" starttime="20240129 19:12:51.626" endtime="20240129 19:12:51.692">No browser is open.</status>
+</test>
+<status status="FAIL" starttime="20240129 19:12:51.060" endtime="20240129 19:12:51.694"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestesAdmin">TestesAdmin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

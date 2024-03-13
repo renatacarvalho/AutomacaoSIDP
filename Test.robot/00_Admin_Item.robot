@@ -6,6 +6,7 @@ Resource    ../Resources.robot/PageObject.robot/detalheItem.robot
 
 *** Test Cases ***
 Login
+    ###teste
     Dado que eu esteja na URL https://sidp.fitec.org.br/login
     Quando eu clicar no botão Fazer login com microsoft
     E digitar o email
