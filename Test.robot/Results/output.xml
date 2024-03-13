@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-02-27T13:42:05.736496" rpa="false" schemaversion="5">
+<suite id="s1" name="Admin Notificacoes" source="C:\Automacao\SIDP\Test.robot\Admin_Notificacoes.robot">
+<test id="s1-t1" name="Login" line="6">
+<kw name="Dado que eu esteja na URL https://sidp.fitec.org.br/login" owner="login">
+<kw name="Acessar URL" owner="setup_teardown">
+<kw name="Get Variables" owner="BuiltIn">
+<msg time="2024-02-27T13:42:06.539792" level="INFO">${variables} = {'${/}': '\\', '${:}': ';', '${\\n}': '\r\n', '${AbaItens}': "xpath=//button[contains(@label,'Itens')]", '${AcoesNaoDesvincular}': 'xpath=//*[@id="action-btn-cf0d9ab0-8b02-410e-87c7-9ab5f0c2423d"]', '...</msg>
+<var>${variables}</var>
+<doc>Returns a dictionary containing all variables in the current scope.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Abrir Chrome" owner="setup_teardown">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2024-02-27T13:42:06.539792" level="INFO" html="true">Directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;' already exists.</msg>
+<arg>${DOWNLOAD_DIRECTORY}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="0.000000"/>
+</kw>
+<kw name="Empty Directory" owner="OperatingSystem">
+<msg time="2024-02-27T13:42:06.539792" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;'.</msg>
+<msg time="2024-02-27T13:42:06.591291" level="INFO" html="true">Emptied directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIRECTORY}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="0.051499"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-02-27T13:42:06.591291" level="INFO">${chromeOptions} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001B37CC789B0&gt;</msg>
+<var>${chromeOptions}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-02-27T13:42:06.591291" level="INFO">${prefs} = {'download.default_directory': 'C:\\Download'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIRECTORY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-02-27T13:42:06.591291" level="INFO">@{switches} = [ enable-logging ]</msg>
+<var>@{switches}</var>
+<arg>enable-logging</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chromeOptions}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chromeOptions}</arg>
+<arg>add_experimental_option</arg>
+<arg>excludeSwitches</arg>
+<arg>${switches}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:06.591291" level="INFO">Opening browser 'chrome' to base url 'https://sidp.fitec.org.br/login'.</msg>
+<arg>${geral.URL}</arg>
+<arg>${geral.Browser}</arg>
+<arg>options=${chromeOptions}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.591291" elapsed="6.272587"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-02-27T13:42:12.868034" level="INFO">${BROWSER_OPENED} = True</msg>
+<arg>${BROWSER_OPENED}</arg>
+<arg>True</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-02-27T13:42:12.864936" elapsed="0.003098"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="6.328242"/>
+</kw>
+<arg>"\${BROWSER_OPENED}" in $variables</arg>
+<arg>Go To</arg>
+<arg>${geral.URL}</arg>
+<arg>ELSE</arg>
+<arg>Abrir Chrome</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="6.328242"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="6.328242"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-02-27T13:42:12.868034" elapsed="0.122933"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="6.451175"/>
+</kw>
+<kw name="Quando eu clicar no botão Fazer login com microsoft" owner="login">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:12.990967" level="INFO">Clicking button 'xpath=//button[@type='button'][contains(.,'Fazer login com microsoft')]'.</msg>
+<arg>${BotaoLoginMicrosoft}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:12.990967" elapsed="0.148020"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:12.990967" elapsed="0.148020"/>
+</kw>
+<kw name="E digitar o email" owner="login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${InputEmail}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-27T13:42:13.139941" elapsed="2.165089"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:15.305030" level="INFO">Typing text 'fitec@dpr.com.br' into text field 'xpath=//*[@id="i0116"]'.</msg>
+<arg>${InputEmail}</arg>
+<arg>fitec@dpr.com.br</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:15.305030" elapsed="0.208061"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:13.139941" elapsed="2.373150"/>
+</kw>
+<kw name="E clicar em avançar" owner="login">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:15.516754" level="INFO">Clicking element 'xpath=//*[@id="idSIButton9"]'.</msg>
+<arg>${BotaoAvancar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:15.514597" elapsed="0.083843"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:15.514597" elapsed="0.084073"/>
+</kw>
+<kw name="E digitar a senha" owner="login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${InputSenha}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-27T13:42:15.598670" elapsed="1.176362"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:16.775032" level="INFO">Typing text 'Fitec@2023' into text field 'xpath=//*[@id="i0118"]'.</msg>
+<arg>${InputSenha}</arg>
+<arg>Fitec@2023</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:16.775032" elapsed="0.121229"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:15.598670" elapsed="1.297591"/>
+</kw>
+<kw name="E clicar em avançar" owner="login">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:16.896261" level="INFO">Clicking element 'xpath=//*[@id="idSIButton9"]'.</msg>
+<arg>${BotaoAvancar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:16.896261" elapsed="0.566700"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:16.896261" elapsed="0.567523"/>
+</kw>
+<kw name="E clicar em continuar conectado" owner="login">
+<kw name="Run Keyword" owner="BuiltIn">
+<kw name="E clicar em avançar" owner="login">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:17.463784" level="INFO">Clicking element 'xpath=//*[@id="idSIButton9"]'.</msg>
+<arg>${BotaoAvancar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:17.463784" elapsed="1.467880"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:17.463784" elapsed="1.467880"/>
+</kw>
+<arg>E clicar em avançar</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="PASS" start="2024-02-27T13:42:17.463784" elapsed="1.467880"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:17.463784" elapsed="1.467880"/>
+</kw>
+<kw name="Então devera ser apresentado a tela inicial do sistema com a listagem do menu itens" owner="login">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:20.932124" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:18.931664" elapsed="2.000460"/>
+</kw>
+<kw name="Page Should Contain Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:21.096066" level="INFO">Current page contains button 'xpath=//button[contains(@label,'Itens')]'.</msg>
+<arg>${AbaItens}</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<status status="PASS" start="2024-02-27T13:42:20.932124" elapsed="0.163942"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:18.931664" elapsed="2.164402"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:06.539792" elapsed="14.556274"/>
+</test>
+<test id="s1-t2" name="Filtro pelo titulo Documento excluido do sistema" line="15">
+<kw name="Dado que eu clique no menu notificações" owner="guiaNotificacoes">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:21.096066" level="INFO">Clicking button 'xpath=//button[contains(.,'Notificações')]'.</msg>
+<arg>${GuiaNotificacoes}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:21.096066" elapsed="0.130404"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:21.096066" elapsed="0.130404"/>
+</kw>
+<kw name="Quando eu clicar em ver tudo" owner="guiaNotificacoes">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VerTudo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-27T13:42:21.226470" elapsed="0.053059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:21.279529" level="INFO">Clicking element 'xpath=//div[@class='actions-container'][contains(.,'Ver tudo')]'.</msg>
+<arg>${VerTudo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:21.279529" elapsed="0.087712"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:24.367516" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:21.367241" elapsed="3.000275"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:21.226470" elapsed="3.141046"/>
+</kw>
+<kw name="E pesquisar por Documento excluido do sistema no campo de busca" owner="guiaNotificacoes">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:24.369530" level="INFO">Typing text 'excluido do sistema' into text field 'xpath=//input[contains(@name,'term')]'.</msg>
+<arg>${BuscarMensagem}</arg>
+<arg>excluido do sistema</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:24.367516" elapsed="0.251164"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:24.367516" elapsed="0.251164"/>
+</kw>
+<kw name="E clicar em buscar" owner="guiaItens">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:24.623883" level="INFO">Clicking button 'xpath=//button[@type='submit'][contains(.,'Buscar')]'.</msg>
+<arg>${BotaoBuscar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:24.621681" elapsed="0.103795"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:26.726010" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:24.725476" elapsed="2.000534"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:24.621681" elapsed="2.104329"/>
+</kw>
+<kw name="Então deverá existir notificação com o titulo &quot;Documento excluido do sistema&quot;" owner="guiaNotificacoes">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:29.727948" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:26.727731" elapsed="3.000217"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:29.747485" level="INFO">Current page contains element 'xpath=(//p[@variant='h6'][contains(.,'Documento excluído do sistema')])[1]'.</msg>
+<arg>${DocExcluido}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-27T13:42:29.728787" elapsed="0.018698"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:29.893983" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-314.png"&gt;&lt;img src="selenium-screenshot-314.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-27T13:42:29.747485" elapsed="0.146498"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:26.727731" elapsed="3.181271"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:21.096066" elapsed="8.812936"/>
+</test>
+<test id="s1-t3" name="Filtro pelo titulo Documento aprovado" line="21">
+<kw name="Dado que eu clique no menu notificações" owner="guiaNotificacoes">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:29.913084" level="INFO">Clicking button 'xpath=//button[contains(.,'Notificações')]'.</msg>
+<arg>${GuiaNotificacoes}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:29.911998" elapsed="0.098805"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:29.911998" elapsed="0.098805"/>
+</kw>
+<kw name="Quando eu clicar em ver tudo" owner="guiaNotificacoes">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VerTudo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-27T13:42:30.010803" elapsed="0.029135"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:30.039938" level="INFO">Clicking element 'xpath=//div[@class='actions-container'][contains(.,'Ver tudo')]'.</msg>
+<arg>${VerTudo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:30.039938" elapsed="0.085675"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:33.125866" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:30.125613" elapsed="3.000253"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:30.010803" elapsed="3.115063"/>
+</kw>
+<kw name="E pesquisar por Documento aprovado do sistema no campo de busca" owner="guiaNotificacoes">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:33.127403" level="INFO">Typing text 'aprovado' into text field 'xpath=//input[contains(@name,'term')]'.</msg>
+<arg>${BuscarMensagem}</arg>
+<arg>aprovado</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:33.127403" elapsed="0.196495"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:33.125866" elapsed="0.198032"/>
+</kw>
+<kw name="E clicar em buscar" owner="guiaItens">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:33.323898" level="INFO">Clicking button 'xpath=//button[@type='submit'][contains(.,'Buscar')]'.</msg>
+<arg>${BotaoBuscar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:33.323898" elapsed="0.155892"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:35.480493" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:33.479790" elapsed="2.000703"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:33.323898" elapsed="2.156595"/>
+</kw>
+<kw name="Então deverá existir notificação com o titulo &quot;Documento aprovado&quot;" owner="guiaNotificacoes">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:38.480851" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:35.480493" elapsed="3.000358"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:38.492309" level="INFO">Current page contains element 'xpath=(//p[contains(.,'Documento aprovado')])[1]'.</msg>
+<arg>${DocAprovado}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.480851" elapsed="0.011458"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:38.641329" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-315.png"&gt;&lt;img src="selenium-screenshot-315.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.492309" elapsed="0.149020"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:35.480493" elapsed="3.160836"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:29.910917" elapsed="8.730412"/>
+</test>
+<test id="s1-t4" name="Filtro pelo titulo Documento adicionado ao sistema" line="27">
+<kw name="Dado que eu clique no menu notificações" owner="guiaNotificacoes">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:38.641329" level="INFO">Clicking button 'xpath=//button[contains(.,'Notificações')]'.</msg>
+<arg>${GuiaNotificacoes}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.641329" elapsed="0.147287"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:38.641329" elapsed="0.150989"/>
+</kw>
+<kw name="Quando eu clicar em ver tudo" owner="guiaNotificacoes">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VerTudo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.792318" elapsed="0.031562"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:38.823880" level="INFO">Clicking element 'xpath=//div[@class='actions-container'][contains(.,'Ver tudo')]'.</msg>
+<arg>${VerTudo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.823880" elapsed="0.086759"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:41.912822" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:38.911878" elapsed="3.000944"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:38.792318" elapsed="3.120504"/>
+</kw>
+<kw name="E pesquisar por Documento adicionado do sistema no campo de busca" owner="guiaNotificacoes">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:41.912822" level="INFO">Typing text 'documento adicionado' into text field 'xpath=//input[contains(@name,'term')]'.</msg>
+<arg>${BuscarMensagem}</arg>
+<arg>documento adicionado</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:41.912822" elapsed="0.259412"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:41.912822" elapsed="0.259412"/>
+</kw>
+<kw name="E clicar em buscar" owner="guiaItens">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:42.172234" level="INFO">Clicking button 'xpath=//button[@type='submit'][contains(.,'Buscar')]'.</msg>
+<arg>${BotaoBuscar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-27T13:42:42.172234" elapsed="0.153131"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:44.325978" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:42.325365" elapsed="2.000613"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:42.172234" elapsed="2.153744"/>
+</kw>
+<kw name="Então deverá existir notificação com o titulo &quot;Documento adicionado ao sistema&quot;" owner="guiaNotificacoes">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-27T13:42:47.326710" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-27T13:42:44.325978" elapsed="3.000732"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:47.345606" level="INFO">Current page contains element 'xpath=(//p[@variant='h6'][contains(.,'Documento adicionado ao sistema')])[1]'.</msg>
+<arg>${DocAdicionado}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-27T13:42:47.326710" elapsed="0.018896"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-27T13:42:47.495216" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-316.png"&gt;&lt;img src="selenium-screenshot-316.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-27T13:42:47.345606" elapsed="0.149610"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:44.325978" elapsed="3.169238"/>
+</kw>
+<status status="PASS" start="2024-02-27T13:42:38.641329" elapsed="8.853887"/>
+</test>
+<status status="PASS" start="2024-02-27T13:42:05.740797" elapsed="41.754419"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Admin Notificacoes">Admin Notificacoes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-03-05T13:51:17.363582" rpa="false" schemaversion="5">
+<suite id="s1" name="Test.robot" source="C:\Automacao\SIDP\Test.robot">
+<suite id="s1-s1" name="00 Admin Item" source="C:\Automacao\SIDP\Test.robot\00_Admin_Item.robot">
+<test id="s1-s1-t1" name="Login" line="8">
+<kw name="Dado que eu esteja na URL https://sidp.fitec.org.br/login" owner="login">
+<kw name="Acessar URL" owner="setup_teardown">
+<kw name="Get Variables" owner="BuiltIn">
+<msg time="2024-03-05T13:51:18.092194" level="INFO">${variables} = {'${/}': '\\', '${:}': ';', '${\\n}': '\r\n', '${AbaItens}': "xpath=//button[contains(@label,'Itens')]", '${AcoesNaoDesvincular}': 'xpath=//*[@id="action-btn-cf0d9ab0-8b02-410e-87c7-9ab5f0c2423d"]', '...</msg>
+<var>${variables}</var>
+<doc>Returns a dictionary containing all variables in the current scope.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.092194" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Abrir Chrome" owner="setup_teardown">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2024-03-05T13:51:18.092194" level="INFO" html="true">Directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;' already exists.</msg>
+<arg>${DOWNLOAD_DIRECTORY}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.092194" elapsed="0.000000"/>
+</kw>
+<kw name="Empty Directory" owner="OperatingSystem">
+<msg time="2024-03-05T13:51:18.092194" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;'.</msg>
+<msg time="2024-03-05T13:51:18.156475" level="INFO" html="true">Emptied directory '&lt;a href="file://C:\Download"&gt;C:\Download&lt;/a&gt;'.</msg>
+<arg>${DOWNLOAD_DIRECTORY}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.092194" elapsed="0.064281"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-03-05T13:51:18.156475" level="INFO">${chromeOptions} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000193BD0D5940&gt;</msg>
+<var>${chromeOptions}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.156475" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-05T13:51:18.156475" level="INFO">${prefs} = {'download.default_directory': 'C:\\Download'}</msg>
+<var>${prefs}</var>
+<arg>download.default_directory=${DOWNLOAD_DIRECTORY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.156475" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-03-05T13:51:18.156475" level="INFO">@{switches} = [ enable-logging ]</msg>
+<var>@{switches}</var>
+<arg>enable-logging</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.156475" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chromeOptions}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.156475" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chromeOptions}</arg>
+<arg>add_experimental_option</arg>
+<arg>excludeSwitches</arg>
+<arg>${switches}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-03-05T13:51:18.156475" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-05T13:51:18.156475" level="INFO">Opening browser 'chrome' to base url 'https://sidp.fitec.org.br/login'.</msg>
+<msg time="2024-03-05T13:51:38.199535" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000193BD0D73B0&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/2474f35e1d06f43eb6ff1c4ae4d49e15/screenshot</msg>
+<errors>
+<msg time="2024-03-05T13:51:38.199535" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000193BD0D73B0&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/2474f35e1d06f43eb6ff1c4ae4d49e15/screenshot</msg>
+<msg time="2024-03-05T13:51:40.236909" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>
